@@ -3,7 +3,7 @@ package music.player;
 
 import java.awt.Color;
 import model.model_menu;
-
+import swing.ScrollBar;
 
 public class main extends javax.swing.JFrame {
 
@@ -14,6 +14,7 @@ public class main extends javax.swing.JFrame {
     }
      
     private void init(){
+        jScrollPane1.setVerticalScrollBar(new ScrollBar());
         setBackground(new Color(0,0,0,0));
         list.addItem(new model_menu("PlayList","playlist"));
         list.addItem(new model_menu("Artists","artists"));
@@ -37,6 +38,8 @@ public class main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         list1 = new component.list_menu<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        form_artists2 = new form.form_artists();
         controller1 = new component.controller();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,12 +63,12 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Candara", 0, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(229, 229, 229));
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("    LIBRARY");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 50, 1, 1));
 
-        jLabel2.setFont(new java.awt.Font("Candara", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Candara", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 229, 229));
         jLabel2.setText("DISCOVER");
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 50, 1, 1));
@@ -105,19 +108,29 @@ public class main extends javax.swing.JFrame {
                 .addGap(0, 69, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.setViewportView(form_artists2);
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1025, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout controller1Layout = new javax.swing.GroupLayout(controller1);
@@ -136,9 +149,7 @@ public class main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(controller1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,8 +193,10 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private component.controller controller1;
+    private form.form_artists form_artists2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private component.list_menu<String> list;
     private component.list_menu<String> list1;
     private component.menu menu1;
