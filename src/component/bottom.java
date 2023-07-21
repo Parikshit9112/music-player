@@ -6,9 +6,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class buttom extends javax.swing.JPanel {
+public class bottom extends javax.swing.JPanel {
 
-    public buttom() {
+    public bottom() {
         initComponents();
         setOpaque(false);
         setBackground(new Color(68,68,68));
