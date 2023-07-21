@@ -195,7 +195,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="component.controller" name="controller1">
+    <Container class="component.buttom" name="controller1">
 
       <Layout>
         <DimensionLayout dim="0">
