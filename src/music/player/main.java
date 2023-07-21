@@ -40,7 +40,7 @@ public class main extends javax.swing.JFrame {
         list1 = new component.list_menu<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         form_artists2 = new form.form_artists();
-        controller1 = new component.buttom();
+        controller1 = new component.bottom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -192,7 +192,7 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private component.buttom controller1;
+    private component.bottom controller1;
     private form.form_artists form_artists2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
