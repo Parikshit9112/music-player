@@ -7,3 +7,5 @@ Intern - Core Java
 Project Name : HarmoniPlay (Music Player)
 
 Intership Duration : July 1, 2023 to August 15, 2023
+
+The internship report is located within this repository.
