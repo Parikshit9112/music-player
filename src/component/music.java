@@ -1,26 +1,55 @@
 
 package component;
 
+import static component.bottom.buttonplay;
 import model.model_music;
-
+import model.music_operation;
+import model.song;
+import java.util.ArrayList;
+import static component.bottom.playststatus;
+import javax.swing.ImageIcon;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class music extends javax.swing.JPanel {
-
+    public static music_operation mo=new music_operation();
+    public static ArrayList<String> songs=new song().getSongsFromFolder("C:\\Users\\ASUS\\Documents\\NetBeansProjects\\file_list\\src\\song");
+    public static int selectedSong;
     public music() {
         initComponents();
         init();
+        list.addListSelectionListener( new SongSelectionListener());
     }
     
     private void init(){
-        list.addItem(new model_music("1", "No Music", "00:00"));
-        list.addItem(new model_music("2", "No Music", "00:00"));
-        list.addItem(new model_music("4", "No Music", "00:00"));
-        list.addItem(new model_music("5", "No Music", "00:00"));
-        list.addItem(new model_music("6", "No Music", "00:00"));
-        list.addItem(new model_music("7", "No Music", "00:00"));
-       
+         for(int i=0;i<songs.size();i++){
+            list.addItem(new model_music(String.valueOf(i+1), songs.get(i).substring(0,songs.get(i).length()-4), "03:00"));
+        }
+
     }
    
+    
+    private class SongSelectionListener implements ListSelectionListener {
+   
+        public void valueChanged(ListSelectionEvent e) {
+            if (!e.getValueIsAdjusting()) {
+                // Stop the current song if it's playing
+                  mo.stopPlayer();
+
+                // Get the selected song's file path
+                selectedSong = music.this.list.getSelectedIndex();
+                System.out.println(selectedSong);
+               String filePath = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\file_list\\src\\song\\"+songs.get(selectedSong);
+                 
+                // Play the new selected song
+               mo.playSong(filePath);
+               buttonplay.setIcon(new ImageIcon(getClass().getResource("/icon/pause.png")));
+         
+            }
+        }
+    }
+    
+    
   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -58,6 +87,6 @@ public class music extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private component.list_music<String> list;
+    public static component.list_music<String> list;
     // End of variables declaration//GEN-END:variables
 }
